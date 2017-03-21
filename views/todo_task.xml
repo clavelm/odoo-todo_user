@@ -49,4 +49,9 @@
       </field>
     </field>
   </record>
+  
+  <!-- Modify menu item --> 
+  <record id="todo_app.menu_todo_task" model="ir.ui.menu">
+    <field name="name">My To-Do</field>
+  </record>
 </odoo>
