@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class TodoTask(models.Model):
     _inherit = 'todo.task'
@@ -14,3 +15,9 @@ class TodoTask(models.Model):
         dones = self.search(domain) 
         dones.write({'active': False}) 
         return True
+
+    @api.one
+    def do_toggle_done(self):
+        if self.user_id != self.env.user: 
+            raise ValidationError('Only the responsible can do this!') 
+        return super(TodoTask, self).do_toggle_done()
