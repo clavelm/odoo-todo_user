@@ -7,5 +7,8 @@
         'views/todo_task.xml',
         'security/todo_access_rules.xml',
     ],
-    'demo': ['data/todo.task.csv'],
+    'demo': [
+        'data/todo.task.csv',
+        'data/todo_data.xml',
+    ],
 }
